@@ -4,7 +4,7 @@ import java.util.Scanner;
 public final class consoleCalc {
     public int a;
     public int b;
-
+    
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String modeName = "";
@@ -28,14 +28,11 @@ public final class consoleCalc {
                 modeName = "DIVISION";
                 break;
             default:
-                modeName = "INVALID MODE SELECTION";
+                modeName = "INVALID MODE SELECTION; RESTART PROGRAM";
                 break;
         }
 
         System.out.println("MODE SELECTED: "+modeName);
-
-        if (modeName == "INVALID MODE SELECTION") {
-            
-        }
+        System.out.println("-----------------------------------");
     }
 }

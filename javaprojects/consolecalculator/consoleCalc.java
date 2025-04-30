@@ -1,6 +1,6 @@
-package javaprojects;
+package javaprojects.consolecalculator;
 import java.util.Scanner;
-import javaprojects.calcFunctions;
+import javaprojects.consolecalculator.calcFunctions;
 
 public class consoleCalc {
     public static void main(String[] args) {
@@ -46,27 +46,22 @@ public class consoleCalc {
         switch (mode) {
             case 1:
                 functions.add(val1, val2, val3);
-                System.out.println("-----------------------------------");
-                System.out.println("RESULT: "+val3);
                 break;
             case 2:
                 functions.sub(val1, val2, val3);
-                System.out.println("-----------------------------------");
-                System.out.println("RESULT: "+val3);
                 break;
             case 3:
                 functions.mul(val1, val2, val3);
-                System.out.println("-----------------------------------");
-                System.out.println("RESULT: "+val3);
                 break;
             case 4:
                 functions.div(val1, val2, val3);
-                System.out.println("-----------------------------------");
-                System.out.println("RESULT: "+val3);
                 break;
             default:
+                System.out.println("-----------------------------------");
                 System.out.println("INVALID MODE SELECTION; RESTART PROGRAM");
                 break;
         }
+        System.out.println("-----------------------------------");
+        System.out.println("PROGRAM END, THANK YOU FOR USING THIS SHITTY SET OF CODE");
     }
 }

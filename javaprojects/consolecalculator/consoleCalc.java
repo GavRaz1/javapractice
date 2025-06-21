@@ -1,24 +1,26 @@
 package javaprojects.consolecalculator;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-import javaprojects.consolecalculator.calcFunctions;
 
 public class consoleCalc {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         calcFunctions functions = new calcFunctions();
         String modeName = "";
-        int mode;
+        int mode = 0;
         int val1;
         int val2;
         int val3 = 0;
 
-        System.out.println("--CONSOLE CALCULATOR v1 BY GAVRAZ--");
-        System.out.println("MODES: 1-ADDITION, 2-SUBTRACTION, 3-MULTIPLICATION, 4-DIVISION");
-        System.out.println("NOTE: THIS PROGRAM IS IN VERY EARLY STAGES AND YOU \nCAN ONLY DO ONE CALCULATION BEFORE RESTARTING");
-        System.out.println("SELECT MODE: ");
-        mode = input.nextInt();
+        functions.greet();
+        functions.gather(mode, input);
 
         switch (mode) {
+            case 0:
+                System.out.println("-----------------------------------");
+                System.out.println("PROGRAM END, THANK YOU FOR USING THIS SHITTY SET OF CODE");
+                System.exit(0);
+                break;
             case 1:
                 modeName = "ADDITION";
                 break;
@@ -30,9 +32,6 @@ public class consoleCalc {
                 break;
             case 4:
                 modeName = "DIVISION";
-                break;
-            default:
-                modeName = "INVALID MODE SELECTION; RESTART PROGRAM";
                 break;
         }
 

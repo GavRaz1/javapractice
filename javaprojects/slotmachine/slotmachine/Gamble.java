@@ -1,27 +1,24 @@
+package slotmachine;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Gamble {
 
-    static final String[] slotSet = {"o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", 
-        "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "t", "t", "t", "t", "t", "Y", "Y", "Y", "X", "X"};
-
-    static Random rnum;// = new Random();
-    static Scanner input;// = new Scanner(System.in);
-    static String result;// = "";
-    static double balance;// = rnum.nextInt(100,1000);
-    static double bid;// = 0.0;
-    static char a;// = ' ';
-    static char b;// = ' ';
-    static char c;// = ' ';
-    static boolean gambling;// = false;
+    static final String[] slotSet = {"o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "t", "t", "t", "t", "t", "Y", "Y", "Y", "X", "X"};
+    static Random rnum;
+    static Scanner input;
+    static String result;
+    static double balance;
+    static double bid;
+    static char a;
+    static char b;
+    static char c;
+    static boolean gambling;
+    static boolean checkFail;
     
     
     public Gamble() {
-//         slotSet = {"o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", 
-// "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "t", "t", "t", "t", "t", "Y", "Y", "Y", "X", "X"};
-
         rnum = new Random();
         input = new Scanner(System.in);
         result = "";
@@ -31,32 +28,22 @@ public class Gamble {
         b = ' ';
         c = ' ';
         gambling = false;
-
-        //init methods
-        // check(rnum, input, result, slotSet, a, b, c, balance, bid);
-        // bet(input, bid);
-        // gamble(rnum, result, slotSet, bid, balance, a, b, c);
-        // play(rnum, input, result, slotSet, gambling, a, b, c, balance, bid);
+        checkFail = false;
     }
 
-    // void check(Random rnum, Scanner input, String result, String[] slots, char a, char b, char c, double balance, double bid) {
     void check() {
         if (bid > balance) {
             bid = 0.0;
             System.out.println("BID HIGHER THAN BALANCE, PLEASE REBID");
-            bet();
-        } else {
-            gamble();
+            checkFail = true;
         }
     }
 
-    // void bet(Scanner input, double bid) {
     void bet() {
         System.out.println("HOW MUCH WOULD YOU LIKE TO BID?");
         bid = bid + input.nextDouble();
     }
 
-    // void gamble(Random rnum, String result, String[] slots, double bid, double balance, char a, char b, char c) {
     void gamble() {
         balance = balance - bid;
         System.out.println("-------------------------------------------------------------");
@@ -107,12 +94,18 @@ public class Gamble {
         }
     }
 
-    // void play(Random rnum, Scanner input, String result, String[] slots, boolean gambling, int a, int b, int c, double balance, double bid) {
     void play() {
-        if (gambling == false) {
-            
-        } else {
-
+        while (true) {
+            if (gambling == false) {
+                bet();
+                check();
+                if (checkFail == true) {
+                    continue;
+                }
+                gambling = true;
+            } else {
+                gamble();
+            }
         }
     }
 }

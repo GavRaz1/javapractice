@@ -12,8 +12,6 @@ public class Gamble {
     static String result;
     static double balance;
     static double bid;
-    static boolean gambling;
-    static boolean checkFail;
     
     public Gamble() {
         rnum = new Random();

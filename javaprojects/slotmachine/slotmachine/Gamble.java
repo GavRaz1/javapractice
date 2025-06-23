@@ -1,6 +1,7 @@
 package slotmachine;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Gamble {
 
@@ -34,11 +35,15 @@ public class Gamble {
         bid += input.nextDouble();
     }
 
-    void gamble() {
+    void gamble() throws InterruptedException {
         balance -= bid;
         System.out.println("-------------------------------------------------------------");
-        result = result+"\r|"+slotSet[rnum.nextInt(0,5)]+"|"+slotSet[rnum.nextInt(0,5)]+"|"+slotSet[rnum.nextInt(0,5)]+"|";
-        System.out.println(result);
+        System.out.print("Rolling...");
+
+        TimeUnit.SECONDS.sleep(2);
+
+        result = result+"\r|"+slotSet[rnum.nextInt(0,5)]+"|"+slotSet[rnum.nextInt(0,5)]+"|"+slotSet[rnum.nextInt(0,5)]+"|   ";
+        System.out.print(result);
         activeSlots[0] = result.charAt(2);
         activeSlots[1] = result.charAt(4);
         activeSlots[2] = result.charAt(6);
@@ -77,7 +82,7 @@ public class Gamble {
         }
     }
 
-    void play() {
+    void play() throws InterruptedException {
         bet();
         check();
         gamble();

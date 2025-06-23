@@ -3,7 +3,7 @@ package slotmachine;
 public class Main {
     static Gamble mechanics;
     static boolean active;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         mechanics = new Gamble();
         active = false;
 

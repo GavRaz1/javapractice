@@ -15,6 +15,8 @@ public class Backend {
     static int firstPlayType;
     static int coordX;
     static int coordY;
+    static boolean isP1sTurn;
+    static boolean isP2sTurn;
 
     static char[][] gameLayout = { //for debug purposes blanks will be dashes
         {'-','-','-'},
@@ -39,20 +41,34 @@ public class Backend {
         winner = "";
         coordX = 0;
         coordY = 0;
+        isP1sTurn = true;
+        isP2sTurn = false;
     }
 
-    public void gatherInfo() {
+    public void gatherPlayerInfo() {
         System.out.print("ENTER PLAYER1: ");
         player1 = input.nextLine();
         System.out.print("ENTER PLAYER2: ");
         player2 = input.nextLine();
     }
 
+    public void turnLogic() { //this wont work do this tomorrow sleepyhead
+        if (isP1sTurn == true) {
+
+        } else if (isP1sTurn == false) {
+
+        } else if (isP1sTurn == true) {
+
+        } else if (isP1sTurn == false) {
+
+        }
+    }
+
     public void winCheck() {
 
     }
 
-    public void play() throws InterruptedException {
+    public void play() {
 
     }
 }

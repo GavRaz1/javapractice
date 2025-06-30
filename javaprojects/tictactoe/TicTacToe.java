@@ -1,7 +1,7 @@
 package javaprojects.tictactoe;
 import java.util.Scanner;
 
-public class Game {
+public class TicTacToe {
     static Scanner input;
     static Backend game;
     static boolean active;

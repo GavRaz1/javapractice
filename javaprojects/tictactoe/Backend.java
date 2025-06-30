@@ -27,6 +27,7 @@ public class Backend {
      * 1 | O |   | X |
      * 2 |   | X | O |
      * 3 | X |   | O |
+     * (game not 0-indexed, code 0-indexed)
     */
 
     public Backend() {

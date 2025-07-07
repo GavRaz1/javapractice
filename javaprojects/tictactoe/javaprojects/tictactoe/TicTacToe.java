@@ -8,6 +8,13 @@ public class TicTacToe {
         active = false;
 
         System.out.println("WELCOME TO TIC-TAC-TOE: HORRENDOUS EDITION (YOU KNOW THE RULES OF THE GAME CMON)");
-        game.gatherInfo();
+        game.gatherPlayerInfo();
+        while (true) {
+            if (active == false) {
+                active = true;
+                game.turnLogic();
+                active = false;
+            }
+        }
     }
 }
